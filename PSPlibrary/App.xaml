@@ -1,0 +1,372 @@
+﻿<Application
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="PSPlibrary.App"
+             Startup="AppStartup">
+    <Application.Resources>
+        
+        <Style x:Key="Canceled" TargetType="{x:Type Button}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Border" Cursor="Hand" CornerRadius="1" BorderThickness="1"
+                                Background="{DynamicResource CanceledNormal}" BorderBrush="{DynamicResource CanceledNormalBorder}">
+                            <ContentPresenter Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource CanceledFocusedBorder}" />
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource CanceledFocusedBorder}" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource CanceledOver}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource CanceledPressed}" />
+                                <Setter TargetName="Border" Property="Cursor" Value="Hand" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" />
+                                <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="true">
+                                <Setter Property="Foreground" Value="{DynamicResource CanceledForeground}"/>
+                                <Setter Property="FontSize" Value="11"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Okey" TargetType="{x:Type Button}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Border" Cursor="Hand" CornerRadius="1" BorderThickness="1" Background="{DynamicResource OkeyNormal}" BorderBrush="{DynamicResource OkeyNormalBorder}">
+                            <ContentPresenter Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource OkeyFocusedBorder}" />
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource OkeyFocusedBorder}" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource OkeyOver}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource OkeyPressedBorder}" />
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource OkeyPressed}" />
+                                <Setter TargetName="Border" Property="Cursor" Value="Hand" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" />
+                                <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="true">
+                                <Setter Property="Foreground" Value="{DynamicResource OkeyForeground}"/>
+                                <Setter Property="FontSize" Value="11"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style x:Key="FolderBrowser" TargetType="{x:Type TextBoxBase}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                        <Border x:Name="Border" CornerRadius="1" Padding="1" BorderThickness="1"
+                                Background="{DynamicResource WindowBackgroundBrush}" BorderBrush="{DynamicResource SolidBorderBrush}">
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource DisabledBackgroundBrush}"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource DisabledBackgroundBrush}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="NormalBar" TargetType="{x:Type ProgressBar}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ProgressBar}">
+                        <Grid>
+                            <Border 
+        x:Name="PART_Track" 
+        CornerRadius="2" 
+        Background="{DynamicResource PressedBrush}"
+        BorderBrush="{DynamicResource SolidBorder}"
+        BorderThickness="1" />
+                            <Border 
+        x:Name="PART_Indicator" 
+        CornerRadius="1" 
+        Background="{DynamicResource DarkBrush}" 
+        BorderBrush="{DynamicResource NormalBorderBrush}" 
+        BorderThickness="1" 
+        HorizontalAlignment="Left" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Moded" TargetType="{x:Type Button}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Border" Cursor="Hand" CornerRadius="1" BorderThickness="1" Background="{DynamicResource ModeNormal}" BorderBrush="{DynamicResource ModeBorder}">
+                            <ContentPresenter Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ModeBorder}" />
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ModeBorder}" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ModeOver}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ModePressedBorder}" />
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ModePressed}" />
+                                <Setter TargetName="Border" Property="Cursor" Value="Hand" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" />
+                                <Setter Property="Foreground" Value="#FF6E6E6E"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="true">
+                                <Setter Property="Foreground" Value="{DynamicResource ModeForeground}"/>
+                                <Setter Property="FontSize" Value="11"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Navigator" TargetType="{x:Type Button}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Border" Cursor="Hand" CornerRadius="0" BorderThickness="0,0,0,4" Background="{DynamicResource NavigatorBackground}" BorderBrush="{DynamicResource NavigatorBorderBrush}">
+                            <ContentPresenter Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ModePressedBorder}" />
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ModePressed}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="true">
+                                <Setter Property="Foreground" Value="#FFFFFFFF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="DetailsTab" TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border Name="Border" Margin="3,0,3,0" BorderThickness="0,0,0,4" CornerRadius="0" Background="#FFF0F0F0" BorderBrush="{DynamicResource SolidBorderBrush}">
+                                <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" Margin="12,2,12,2" RecognizesAccessKey="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter Property="Foreground" Value="#FF007ACC" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#FF007ACC" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="#FFF0F0F0" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource SolidBorderBrush}" />
+                                <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Tab Style-->
+        <LinearGradientBrush x:Key="LightBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#FFF" Offset="0.0"/>
+                    <GradientStop Color="#EEE" Offset="1.0"/>
+                </GradientStopCollection>
+            </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="DisabledBorderBrush" Color="#AAA" />
+
+        <!-- Navigator Style-->
+        <SolidColorBrush x:Key="NavigatorBackground" Color="#FF2D2D30"/>
+        <SolidColorBrush x:Key="NavigatorBorderBrush" Color="#FF585861"/>
+        
+        <!-- ModeButton Style-->
+
+        <LinearGradientBrush x:Key="DarkBrush" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#c5dd5a" Offset="0.0"/>
+                    <GradientStop Color="#b7cf48" Offset="0.54"/>
+                    <GradientStop Color="#a7c325" Offset="0.56"/>
+                    <GradientStop Color="#98b807" Offset="1.0"/>
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="DisabledForegroundTab" Color="#888" />
+        <SolidColorBrush x:Key="DisabledBorderTab" Color="#AAA" />
+        
+        <LinearGradientBrush x:Key="ModeBorder" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#a3b238" Offset="0.0"/>
+                    <GradientStop Color="#699005" Offset="1.0"/>
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+        
+        <LinearGradientBrush x:Key="ModeNormal" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#b1c912" Offset="0.0"/>
+                    <GradientStop Color="#a1bc0f" Offset="0.1"/>
+                    <GradientStop Color="#6e9900" Offset="1.0"/>
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+        
+        <LinearGradientBrush x:Key="ModeOver" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#b8d612" Offset="0.0"/>
+                    <GradientStop Color="#7dac06" Offset="1.0"/>
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="ModePressedBorder" Color="#59770d" />
+        <SolidColorBrush x:Key="ModePressed" Color="#6e9900" />
+        <SolidColorBrush x:Key="ModeForeground" Color="#eeeeee" />
+
+
+        <!-- Processbar Style-->
+        <LinearGradientBrush x:Key="PressedBrush" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#ededed" Offset="0.0"/>
+                    <GradientStop Color="#ededed" Offset="1.0"/>
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="SolidBorder" Color="#515154" />
+
+        <LinearGradientBrush x:Key="NormalBorderBrush" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#878f64" Offset="0.0"/>
+                    <GradientStop Color="#74842b" Offset="1.0"/>
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <!-- Textbox Style -->
+        <SolidColorBrush x:Key="FolderForeground" Color="#999" />
+        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888" />
+        <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#EEE" />
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#EDEDED" />
+        <SolidColorBrush x:Key="SolidBorderBrush" Color="#dfdfdf" />
+
+        <!-- Button Style -->
+        <ImageBrush x:Key="test" ImageSource="/PSPlibrary;component/Images/none.jpg" />
+
+        <SolidColorBrush x:Key="CanceledForeground" Color="#333" />
+        <SolidColorBrush x:Key="CanceledFocusedBorder" Color="#afafaf" />
+        <SolidColorBrush x:Key="CanceledNormalBorder" Color="#afafaf" />
+        <LinearGradientBrush x:Key="CanceledNormal" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#e5e5e5" Offset="0.0"/>
+                    <GradientStop Color="#cccccc" Offset="1.0"/>
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="CanceledOver" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#eaeaea" Offset="0.0"/>
+                    <GradientStop Color="#cecece" Offset="1.0"/>
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="CanceledPressed" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#d0d0d0" Offset="0.0"/>
+                    <GradientStop Color="#b7b7b7" Offset="1.0"/>
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="OkeyForeground" Color="#FFF" />
+        <SolidColorBrush x:Key="OkeyFocusedBorder" Color="#134268" />
+        <SolidColorBrush x:Key="OkeyNormalBorder" Color="#285a81" />
+        <LinearGradientBrush x:Key="OkeyNormal" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#567ea3" Offset="0.0"/>
+                    <GradientStop Color="#2d5a83" Offset="1.0"/>
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="OkeyOver" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#5e86a8" Offset="0.0"/>
+                    <GradientStop Color="#37668c" Offset="1.0"/>
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="OkeyPressedBorder" Color="#134268" />
+        <SolidColorBrush x:Key="OkeyPressed" Color="#265880" />
+        
+        
+    </Application.Resources>
+</Application>
