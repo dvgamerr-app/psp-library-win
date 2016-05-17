@@ -20,7 +20,7 @@
                   FontSize="11" Width="535" HorizontalAlignment="Left" VerticalAlignment="Top" Height="574" GridLinesVisibility="Vertical" HorizontalGridLinesBrush="#FFD5DFE5" SelectionMode="Single" IsSynchronizedWithCurrentItem="False" IsReadOnly="True" RowDetailsVisibilityMode="Visible">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="ColumnDiscID" Binding="{Binding DiscID}" Header="Catalog ID" MinWidth="70" MaxWidth="200" Width="80"/>
-                <DataGridTextColumn x:Name="ColumnFilename" Binding="{Binding Filename}" Header="Filename" MinWidth="100" MaxWidth="600" Width="174"/>
+                <DataGridTextColumn x:Name="ColumnFilename" Binding="{Binding Filename}" Header="Filename" MinWidth="100" MaxWidth="600" Width="240"/>
                 <DataGridTextColumn x:Name="ColumnRegion" Binding="{Binding Region}" Header="Region" MinWidth="40" MaxWidth="200" Width="60"/>
                 <DataGridTextColumn x:Name="ColumnFirmware" Binding="{Binding Firmware}" Header="Firmware" MinWidth="60" MaxWidth="200" Width="60"/>
             </DataGrid.Columns>
@@ -110,7 +110,7 @@
                 <Label x:Name="lblTotalGame" Content="N/A" HorizontalAlignment="Left" Margin="183,3,0,0" VerticalAlignment="Top" Padding="2,0" FontSize="10" Foreground="#FF303030"/>
             </Grid>
         </Border>
-        <Grid x:Name="GridEditor" HorizontalAlignment="Left" Height="572" Margin="544,40,0,0" VerticalAlignment="Top" Width="500" Background="#FFF0F0F0" Focusable="True">
+        <Grid x:Name="GridEditor" HorizontalAlignment="Left" Height="572" Margin="544,40,0,0" VerticalAlignment="Top" Width="500" Background="#FFF0F0F0" Focusable="True" d:IsLocked="True" d:IsHidden="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
