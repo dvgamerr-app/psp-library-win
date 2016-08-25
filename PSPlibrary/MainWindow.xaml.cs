@@ -300,17 +300,17 @@ namespace PSPlibrary
             switch (_ConfigDefault.Param("Mode"))
             {
                 case "0":
-                    btnMode.Content = "Viewer Mode";
-                    GridEditor.Visibility = Visibility.Visible;
-                    btnSaveLibrary.Visibility = Visibility.Visible;
-                    _ConfigDefault.Param("Mode", 1);
+                    //btnMode.Content = "Viewer Mode";
+                    //GridEditor.Visibility = Visibility.Visible;
+                    //btnSaveLibrary.Visibility = Visibility.Visible;
+                    //_ConfigDefault.Param("Mode", 1);
 
                     break;
                 case "1":
-                    btnMode.Content = "Editor Mode";
-                    GridEditor.Visibility = Visibility.Hidden;
-                    btnSaveLibrary.Visibility = Visibility.Hidden;
-                    _ConfigDefault.Param("Mode", 0);
+                    //btnMode.Content = "Editor Mode";
+                    //GridEditor.Visibility = Visibility.Hidden;
+                    //btnSaveLibrary.Visibility = Visibility.Hidden;
+                    //_ConfigDefault.Param("Mode", 0);
                     break;
             }
             this.SelectedDataGame();
@@ -366,7 +366,7 @@ namespace PSPlibrary
                 EditPlayer5.IsChecked = false;
 
                 btnSaveLibrary.IsEnabled = true;
-                btnMode.IsEnabled = true;
+                //btnMode.IsEnabled = true;
                 if (DataGame.SelectedIndex > -1)
                 {
                     this.SelectedDataGame();
