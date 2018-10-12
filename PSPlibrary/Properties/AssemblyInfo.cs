@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("PSPlibrary")]
 [assembly: AssemblyDescription("Catalog PSP Games")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Touno.K")]
+[assembly: AssemblyCompany("TOUNO.io")]
 [assembly: AssemblyProduct("PSPlibrary")]
-[assembly: AssemblyCopyright("Touno.K Copyright © 2013")]
+[assembly: AssemblyCopyright("TOUNO.io Copyright © 2013")]
 [assembly: AssemblyTrademark("Touno.K")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.1.0")]
-[assembly: AssemblyFileVersion("1.0.1.0")]
+[assembly: AssemblyVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]

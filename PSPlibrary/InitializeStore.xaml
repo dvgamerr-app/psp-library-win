@@ -71,17 +71,11 @@
         <Grid x:Name="GridAbout" HorizontalAlignment="Left" Height="122" Margin="10,146,0,0
               " VerticalAlignment="Top" Width="466" d:IsHidden="True">
             <Label x:Name="lblFanpage" Content="Fanpage:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,76,0,0" FontWeight="Bold" Padding="2" FontSize="10"/>
-            <Label x:Name="linkFanpage" Content="http://www.facebook.com/anitouno.fanpage" HorizontalAlignment="Left" Margin="65,76,0,0" VerticalAlignment="Top" Padding="2" FontSize="10"/>
+            <Label x:Name="linkFanpage" Content="http://www.facebook.com/touno-project" HorizontalAlignment="Left" Margin="65,76,0,0" VerticalAlignment="Top" Padding="2" FontSize="10"/>
             <Label x:Name="lblProgramer" Content="Programer, Design" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,29,0,0" FontWeight="Bold" Padding="2" FontSize="10"/>
-            <Label x:Name="lblUser" Content="ToUNo-K.com" HorizontalAlignment="Left" Margin="31,46,0,0" VerticalAlignment="Top" Padding="2" FontSize="10"/>
-            <Label x:Name="lblWebsite" Content="Website:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,93,0,0" FontWeight="Bold" Padding="2" FontSize="10"/>
-            <Label x:Name="linkWebsite" Content="http://touno-k.com" HorizontalAlignment="Left" Margin="65,92,0,0" VerticalAlignment="Top" Padding="2" FontSize="10"/>
-            <Label Content="ธนาคารไทยพาณิชย์ (มหาชน)" HorizontalAlignment="Left" Margin="309,47,0,0" VerticalAlignment="Top" Padding="0" FontSize="11"/>
-            <Label Content="เลขที่บัญชี 101-239107-9" HorizontalAlignment="Left" Margin="309,77,0,0" VerticalAlignment="Top" Padding="0" FontSize="11"/>
-            <Label Content="dvgamer@live.com" HorizontalAlignment="Left" Margin="363,99,0,0" VerticalAlignment="Top" Padding="0" FontSize="11"/>
-            <Label Content="ชื่อบัญชี นายกัณฑ์อเนก ทองคำ" HorizontalAlignment="Left" Margin="309,32,0,0" VerticalAlignment="Top" Padding="0" FontSize="11"/>
-            <Label x:Name="lblFanpage1_Copy" Content="บัญชี Paypal: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="286,97,0,0" FontWeight="Bold" Padding="2" FontSize="11" UseLayoutRounding="True"/>
-            <Label Content="สาขา ถนนสาทร" HorizontalAlignment="Left" Margin="309,62,0,0" VerticalAlignment="Top" Padding="0" FontSize="11"/>
+            <Label x:Name="lblUser" Content="TOUNO.io" HorizontalAlignment="Left" Margin="31,46,0,0" VerticalAlignment="Top" Padding="2" FontSize="10"/>
+            <Label x:Name="lblWebsite" Content="Donate:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,93,0,0" FontWeight="Bold" Padding="2" FontSize="10"/>
+            <Label x:Name="linkWebsite" Content="http://touno.io/donate" HorizontalAlignment="Left" Margin="65,92,0,0" VerticalAlignment="Top" Padding="2" FontSize="10"/>
         </Grid>
     </Grid>
 </Window>
