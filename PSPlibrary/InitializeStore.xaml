@@ -64,14 +64,14 @@
         <Image x:Name="ImageAbout" Stretch="None" MouseUp="ImageAbout_MouseUp" />
         <Grid x:Name="GridPreload" HorizontalAlignment="Left" Height="122" Margin="10,146,0,0" VerticalAlignment="Top" Width="466">
             <Label Content="Title Preload" Height="Auto" HorizontalAlignment="Left" Margin="6,0,0,0" x:Name="lblTitle" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Padding="2" FontFamily="Meiryo" />
-            <Label Content="Subject Preload" Height="Auto" HorizontalAlignment="Left" Margin="6,35,0,0" x:Name="lblSubject" VerticalAlignment="Top" FontWeight="Normal" Padding="2" FontSize="10" FontFamily="Meiryo" />
-            <Label Content="Power By Touno-K.com" FontWeight="Bold" Height="Auto" HorizontalAlignment="Right" Margin="0,99,2,0" x:Name="lblCredit" Padding="2" VerticalAlignment="Top" Foreground="#FF535353" />
+            <Label Content="Subject Preload" Height="Auto" HorizontalAlignment="Left" Margin="6,35,0,0" x:Name="lblSubject" VerticalAlignment="Top" FontWeight="Bold" Padding="2" FontSize="10" FontFamily="Meiryo" />
+            <Label Content="Power by TOUNO.io" FontWeight="Bold" Height="Auto" HorizontalAlignment="Right" Margin="0,99,2,0" x:Name="lblCredit" Padding="2" VerticalAlignment="Top" Foreground="#FF535353" />
             <ProgressBar Height="12" HorizontalAlignment="Left" Margin="7,23,0,0" VerticalAlignment="Top" Width="200" x:Name="barPreload" Value="0" LargeChange="1" Orientation="Horizontal" Minimum="0" IsEnabled="True" />
         </Grid>
         <Grid x:Name="GridAbout" HorizontalAlignment="Left" Height="122" Margin="10,146,0,0
               " VerticalAlignment="Top" Width="466" d:IsHidden="True">
             <Label x:Name="lblFanpage" Content="Fanpage:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,76,0,0" FontWeight="Bold" Padding="2" FontSize="10"/>
-            <Label x:Name="linkFanpage" Content="http://www.facebook.com/touno-project" HorizontalAlignment="Left" Margin="65,76,0,0" VerticalAlignment="Top" Padding="2" FontSize="10"/>
+            <Label x:Name="linkFanpage" Content="https://fb.com/touno.project/" HorizontalAlignment="Left" Margin="65,76,0,0" VerticalAlignment="Top" Padding="2" FontSize="10"/>
             <Label x:Name="lblProgramer" Content="Programer, Design" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,29,0,0" FontWeight="Bold" Padding="2" FontSize="10"/>
             <Label x:Name="lblUser" Content="TOUNO.io" HorizontalAlignment="Left" Margin="31,46,0,0" VerticalAlignment="Top" Padding="2" FontSize="10"/>
             <Label x:Name="lblWebsite" Content="Donate:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,93,0,0" FontWeight="Bold" Padding="2" FontSize="10"/>

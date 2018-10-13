@@ -87,16 +87,22 @@ namespace PSPlibrary
 
         private void ButtonApply_Click(object sender, RoutedEventArgs e)
         {
-            this.Reload = false;
-            if (Directory.Exists(txtBrowse.Text.Trim()) && _ConfigDefault.Param("PSPGame") != txtBrowse.Text.Trim())
+            if (Directory.Exists(txtBrowse.Text.Trim()))
             {
-                this.Reload = true;
-                _ConfigDefault.Param("PSPGame",txtBrowse.Text.Trim());
-            }
-            _ConfigDefault.SaveAs(_ConfigFolder + _ConfigName);
+                this.Reload = false;
+                if (_ConfigDefault.Param("PSPGame") != txtBrowse.Text.Trim())
+                {
+                    this.Reload = true;
+                    _ConfigDefault.Param("PSPGame", txtBrowse.Text.Trim());
+                }
+                _ConfigDefault.SaveAs(_ConfigFolder + _ConfigName);
 
-            this.Viewed = false;
-            this.Hide();
+                this.Viewed = false;
+                this.Hide();
+            } else
+            {
+                txtBrowse.Text = "";
+            }
         }
 
     }

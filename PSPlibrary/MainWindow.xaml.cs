@@ -55,17 +55,19 @@ namespace PSPlibrary
                 _ConfigDefault.SaveAs(_ConfigName);
             }
 
-            if (Int32.Parse(_ConfigDefault.Param("X")) == 0 && Int32.Parse(_ConfigDefault.Param("Y")) == 0)
+            
+
+            if (Double.Parse(_ConfigDefault.Param("X")) == 0 && Double.Parse(_ConfigDefault.Param("Y")) == 0)
             {
                 this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             }
             else
             {
-                this.Top = Int32.Parse(_ConfigDefault.Param("Y"));
-                this.Left = Int32.Parse(_ConfigDefault.Param("X"));
+                this.Top = Double.Parse(_ConfigDefault.Param("Y"));
+                this.Left = Double.Parse(_ConfigDefault.Param("X"));
             }
-            this.Width = Int32.Parse(_ConfigDefault.Param("Width"));
-            this.Height = Int32.Parse(_ConfigDefault.Param("Height"));          
+            this.Width = Double.Parse(_ConfigDefault.Param("Width"));
+            this.Height = Double.Parse(_ConfigDefault.Param("Height"));          
             
             WindowState configState = System.Windows.WindowState.Normal;
             if(Int32.Parse(_ConfigDefault.Param("State"))==1) {

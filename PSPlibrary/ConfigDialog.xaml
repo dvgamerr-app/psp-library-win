@@ -4,11 +4,11 @@
         Title="Choose Directory PSP Game" WindowStyle="None" Topmost="True" ShowInTaskbar="False" ResizeMode="NoResize" Background="GhostWhite" Loaded="Window_Loaded" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="120" Width="420" MinWidth="420" MaxWidth="420" MinHeight="120" MaxHeight="120">
     <Grid Background="White">
         <Label Content="PSP Game Directory" Height="Auto" HorizontalAlignment="Left" Margin="8,6,0,0" Name="label1" VerticalAlignment="Top" Padding="2" FontWeight="Bold" />
-        <Button Content="Browse" Height="25" Margin="0,28,12,0" Name="ButtonBrowse" VerticalAlignment="Top" Click="ButtonBrowse_Click" Style="{DynamicResource Canceled}" IsDefault="True" FontSize="11" FontWeight="Bold" HorizontalAlignment="Right" Width="82" />
-        <TextBox Height="25" Margin="9,28,102,0" Name="txtBrowse" VerticalAlignment="Top" Padding="2" Text="" Foreground="#FFBE3131" FontSize="11" Style="{DynamicResource FolderBrowser}" IsReadOnly="True" FontWeight="Bold" />
-        <Border BorderBrush="#FFD9D9D9" BorderThickness="1" Height="40" Name="border1" VerticalAlignment="Bottom" Background="#FFEDEDED" Margin="-1,0,-11,-1" />
-        <Button Content="Apply" Height="25" HorizontalAlignment="Right" Margin="0,0,110,6" Name="ButtonApply" VerticalAlignment="Bottom" Width="90" Background="White" Click="ButtonApply_Click" Style="{DynamicResource Okey}" FontSize="11" />
-        <Button Content="Cancel" Height="25" HorizontalAlignment="Right" Margin="0,0,11,6" Name="ButtonCancel" VerticalAlignment="Bottom" Width="90" Background="White" Click="ButtonCanceled_Click" Style="{DynamicResource Canceled}" FontSize="11"></Button>
+        <Button Content="Browse" Height="25" Margin="0,28,12,0" Name="ButtonBrowse" VerticalAlignment="Top" Click="ButtonBrowse_Click" Style="{DynamicResource Canceled}" IsDefault="True" FontSize="11" FontWeight="Bold" HorizontalAlignment="Right" Width="83" />
+        <TextBox Height="25" Margin="9,28,102,0" Name="txtBrowse" VerticalAlignment="Top" Padding="2" Text="" Foreground="#FFBE3131" FontSize="11" Style="{DynamicResource FolderBrowser}" FontWeight="Bold" />
+        <Border BorderBrush="#FFD9D9D9" BorderThickness="1" Height="40" Name="border1" VerticalAlignment="Bottom" Background="#FFEDEDED" Margin="-1,0,0,-1" />
+        <Button Content="Apply" Height="26" HorizontalAlignment="Right" Margin="0,0,110,6" Name="ButtonApply" VerticalAlignment="Bottom" Width="90" Background="White" Click="ButtonApply_Click" Style="{DynamicResource Okey}" FontSize="11" />
+        <Button Content="Cancel" Height="26" HorizontalAlignment="Right" Margin="0,0,11,6" Name="ButtonCancel" VerticalAlignment="Bottom" Width="90" Background="White" Click="ButtonCanceled_Click" Style="{DynamicResource Canceled}" FontSize="11"></Button>
     </Grid>
     <Window.Resources>
 
