@@ -292,9 +292,10 @@ namespace PSPlibrary
 
         private void AboutItem_Click(object sender, RoutedEventArgs e)
         {
-            ShowBackgoundDialog();
-            _DialogAbout.Show(this, true);
-            HideBackgoundDialog();
+            System.Diagnostics.Process.Start("https://touno.io/donate");
+            //ShowBackgoundDialog();
+            //_DialogAbout.Show(this, true);
+            //HideBackgoundDialog();
         }
 
         private void btnMode_Click(object sender, RoutedEventArgs e)

@@ -95,7 +95,7 @@
         </Border>
         <Border x:Name="BorderNavigator" BorderBrush="{DynamicResource NavigatorBorderBrush}" BorderThickness="0,0,0,4" Background="{DynamicResource NavigatorBackground}" Height="40" VerticalAlignment="Top"
                 />
-        <Button x:Name="btnAbout" Content="About" HorizontalAlignment="Left" Height="40" Margin="210,0,0,0" VerticalAlignment="Top" Width="100" Click="AboutItem_Click" Style="{DynamicResource Navigator}" FontSize="18" FontWeight="Bold"/>
+        <Button x:Name="btnAbout" Content="Donate" HorizontalAlignment="Left" Height="40" Margin="944,0,-0.8,0" VerticalAlignment="Top" Width="100" Click="AboutItem_Click" Style="{DynamicResource Navigator}" FontSize="18" FontWeight="Bold"/>
         <Button x:Name="btnSetting" Content="Setting" HorizontalAlignment="Left" Height="40" Margin="105,0,0,0" VerticalAlignment="Top" Width="100" Click="SettingItem_Click" Style="{DynamicResource Navigator}" FontSize="18" FontWeight="Bold"/>
         <Border BorderBrush="#FFD9D9D9" BorderThickness="0,1,0,0" Margin="0" x:Name="BorderControl" Background="#FFEDEDED" Height="35" VerticalAlignment="Bottom">
             <Grid x:Name="GridControl" Margin="0" Height="39" VerticalAlignment="Top">
