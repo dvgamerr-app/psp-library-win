@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace PSPlibrary
 {
@@ -300,23 +301,23 @@ namespace PSPlibrary
 
         private void btnMode_Click(object sender, RoutedEventArgs e)
         {
-            switch (_ConfigDefault.Param("Mode"))
-            {
-                case "0":
-                    //btnMode.Content = "Viewer Mode";
-                    //GridEditor.Visibility = Visibility.Visible;
-                    //btnSaveLibrary.Visibility = Visibility.Visible;
-                    //_ConfigDefault.Param("Mode", 1);
+            //switch (_ConfigDefault.Param("Mode"))
+            //{
+            //    case "0":
+            //        //btnMode.Content = "Viewer Mode";
+            //        //GridEditor.Visibility = Visibility.Visible;
+            //        //btnSaveLibrary.Visibility = Visibility.Visible;
+            //        //_ConfigDefault.Param("Mode", 1);
 
-                    break;
-                case "1":
-                    //btnMode.Content = "Editor Mode";
-                    //GridEditor.Visibility = Visibility.Hidden;
-                    //btnSaveLibrary.Visibility = Visibility.Hidden;
-                    //_ConfigDefault.Param("Mode", 0);
-                    break;
-            }
-            this.SelectedDataGame();
+            //        break;
+            //    case "1":
+            //        //btnMode.Content = "Editor Mode";
+            //        //GridEditor.Visibility = Visibility.Hidden;
+            //        //btnSaveLibrary.Visibility = Visibility.Hidden;
+            //        //_ConfigDefault.Param("Mode", 0);
+            //        break;
+            //}
+            //this.SelectedDataGame();
         }
 
         private void btnSaveLibrary_Click(object sender, RoutedEventArgs e)

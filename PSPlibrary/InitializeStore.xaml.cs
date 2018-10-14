@@ -60,7 +60,7 @@ namespace PSPlibrary
 
                 _SyncGame = new BackgroundWorker();
                 _SyncGame.WorkerReportsProgress = true;
-                _SyncGame.WorkerSupportsCancellation = false;
+                _SyncGame.WorkerSupportsCancellation = true;
                 _SyncGame.DoWork += new DoWorkEventHandler(_SyncGame_DoWork);
                 _SyncGame.ProgressChanged += new ProgressChangedEventHandler(_SyncGame_ProgressChanged);
                 _SyncGame.RunWorkerCompleted += new RunWorkerCompletedEventHandler(_SyncGame_RunWorkerCompleted);
@@ -99,6 +99,7 @@ namespace PSPlibrary
             String[] DirectoryName = Path.GetDirectoryName(isoGame.FileName).Split('\\');
 
             Param.DiscID = GameSFO.Param("DISC_ID");
+            Param.Title = GameSFO.Param("TITLE");
             Param.Filename = Path.GetFileName(isoGame.FileName);
             Param.Region = Item.GetRegion(GameSFO.Param("DISC_ID"));
             Param.Firmware = GameSFO.Param("PSP_SYSTEM_VER");
@@ -244,7 +245,7 @@ namespace PSPlibrary
                     }
                 }
             }
-            catch 
+            catch (Exception ex)
             {
                 _SyncGame.CancelAsync();
             }

@@ -6,6 +6,7 @@ namespace PSPlibrary
     public class Item
     {
         public string DiscID { get; set; }
+        public string Title { get; set; }
         public string Filename { get; set; }
         public string Region { get; set; }
         public string Firmware { get; set; }

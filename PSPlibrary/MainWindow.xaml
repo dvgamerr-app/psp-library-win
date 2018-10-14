@@ -20,6 +20,7 @@
                   FontSize="11" Width="535" HorizontalAlignment="Left" VerticalAlignment="Top" Height="574" GridLinesVisibility="Vertical" HorizontalGridLinesBrush="#FFD5DFE5" SelectionMode="Single" IsSynchronizedWithCurrentItem="False" IsReadOnly="True" RowDetailsVisibilityMode="Visible">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="ColumnDiscID" Binding="{Binding DiscID}" Header="Catalog ID" MinWidth="70" MaxWidth="200" Width="80"/>
+                <DataGridTextColumn x:Name="ColumnTitle" Binding="{Binding Title}" Header="Title" MinWidth="120" MaxWidth="200" Width="120"/>
                 <DataGridTextColumn x:Name="ColumnFilename" Binding="{Binding Filename}" Header="Filename" MinWidth="100" MaxWidth="600" Width="240"/>
                 <DataGridTextColumn x:Name="ColumnRegion" Binding="{Binding Region}" Header="Region" MinWidth="40" MaxWidth="200" Width="60"/>
                 <DataGridTextColumn x:Name="ColumnFirmware" Binding="{Binding Firmware}" Header="Firmware" MinWidth="60" MaxWidth="200" Width="60"/>
