@@ -1,4 +1,3 @@
-# PSPlibrary
 When you load a new game, it does not know what it is?
 
 ![question][question]
