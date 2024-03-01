@@ -10,7 +10,7 @@ description: >
   PSP Library Software for viewer iso file
 
 # Build settings
-cronitor_token: 31d8b65029197d55153e397052a03c30
+cronitor_token: a08df15d735c0c7518246129767fd319
 
 # theme: dvgamerr/minima-lite
 baseurl: /psp-library-win
