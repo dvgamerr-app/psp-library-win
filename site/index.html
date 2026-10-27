@@ -77,6 +77,8 @@ h2{font-size:clamp(1.5rem,4vw,2.1rem);margin:0 0 8px;letter-spacing:-.01em}
 footer{padding:36px 0 56px;color:var(--muted);font-size:.9rem;text-align:center;border-top:1px solid var(--line)}
 footer a{color:var(--muted)}
 </style>
+<!--traceway-->
+<script src="track.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -90,8 +92,8 @@ footer a{color:var(--muted)}
       <h1>Know every PSP ISO<br>before you launch it.</h1>
       <p class="lead">PSP Library reads your game folder and shows each game's cover, title, catalog ID, region and firmware, so file names like <code>cvn-tokd.hako</code> stop being a mystery.</p>
       <div class="cta">
-        <a class="btn primary" href="https://github.com/dvgamerr-app/psp-library-win/releases/latest">Download for Windows</a>
-        <a class="btn" href="https://github.com/dvgamerr-app/psp-library-win">View on GitHub<span id="stars"></span></a>
+        <a class="btn primary" data-track="download-hero" href="https://github.com/dvgamerr-app/psp-library-win/releases/latest?utm_source=landing&utm_medium=cta&utm_campaign=hero">Download for Windows</a>
+        <a class="btn" data-track="github-hero" href="https://github.com/dvgamerr-app/psp-library-win">View on GitHub<span id="stars"></span></a>
       </div>
       <div class="shot">
         <div class="bar"></div>
@@ -120,11 +122,11 @@ footer a{color:var(--muted)}
       <h2>Get started in a minute</h2>
       <p class="sub">No installer. Needs Windows with .NET Framework 4.0 or newer.</p>
       <ol class="steps">
-        <li><div>Download <strong>psp-library-v1.1-release-x64.zip</strong> (or x86) from the <a href="https://github.com/dvgamerr-app/psp-library-win/releases/latest">latest release</a>.</div></li>
+        <li><div>Download <strong>psp-library-v1.1-release-x64.zip</strong> (or x86) from the <a data-track="download-steps" href="https://github.com/dvgamerr-app/psp-library-win/releases/latest?utm_source=landing&utm_medium=link&utm_campaign=steps">latest release</a>.</div></li>
         <li><div>Extract it anywhere and run <code>PSPlibrary.exe</code>.</div></li>
         <li><div>Choose the folder that holds your PSP games and wait for the scan.</div></li>
         <li><div>Want just one game? Run:
-          <div class="codebox"><code id="cmd">PSPlibrary.exe "C:\path\to\game.iso"</code><button type="button" id="copy">Copy</button></div></div></li>
+          <div class="codebox"><code id="cmd">PSPlibrary.exe "C:\path\to\game.iso"</code><button type="button" id="copy" data-track="copy-command">Copy</button></div></div></li>
       </ol>
       <div class="warn"><strong>Heads up:</strong> the scan moves any <code>.iso</code>, <code>.cso</code> or <code>.pbp</code> sitting directly in your chosen folder into a sub-folder named after the file. Use a folder you are happy to have tidied, or back it up first. Details are read from <code>.iso</code> only for now.</div>
     </section>
@@ -134,8 +136,8 @@ footer a{color:var(--muted)}
         <h2>Found it useful?</h2>
         <p class="sub" style="margin-bottom:20px">A star helps other PSP collectors find it. Bugs and ideas are welcome too.</p>
         <div class="cta">
-          <a class="btn primary" href="https://github.com/dvgamerr-app/psp-library-win">⭐ Star on GitHub</a>
-          <a class="btn" href="https://github.com/dvgamerr-app/psp-library-win/issues">Report an issue</a>
+          <a class="btn primary" data-track="star" href="https://github.com/dvgamerr-app/psp-library-win">⭐ Star on GitHub</a>
+          <a class="btn" data-track="issues" href="https://github.com/dvgamerr-app/psp-library-win/issues">Report an issue</a>
         </div>
       </div>
     </section>
@@ -143,6 +145,7 @@ footer a{color:var(--muted)}
 
   <footer>
     <p>PSP Library is a fan-made tool and is not affiliated with Sony Interactive Entertainment. It does not include or download any game.</p>
+    <p>This page records visits to find bugs and see what is used: page views, clicks, a replay of the page, and your IP address, browser and screen size. It sets no cookies. This applies to this website only, not to the app.</p>
     <p>Licence: not specified yet · <a href="https://github.com/dvgamerr-app/psp-library-win">Source on GitHub</a> · <a href="https://github.com/dvgamerr-app/psp-library-win/blob/main/README.th.md">ภาษาไทย</a></p>
   </footer>
 </div>

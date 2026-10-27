@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "site/**"
+      - ".github/scripts/**"
       - "docs/screenshots/**"
       - "PSPlibrary/Images/umd.ico"
       - ".github/workflows/pages.yml"
@@ -33,12 +34,33 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+
       - name: Assemble site
         run: |
           mkdir -p _site/screenshots
           cp -r site/. _site/
           cp docs/screenshots/*.jpg _site/screenshots/
           cp PSPlibrary/Images/umd.ico _site/favicon.ico
+
+      # Traceway (errors and session replay) is added only when the secret is set,
+      # so a build without it ships nothing extra.
+      - name: Add Traceway
+        env:
+          PUBLIC_TRACEWAY_DSN: ${{ secrets.PUBLIC_TRACEWAY_DSN }}
+        run: |
+          if [ -z "$PUBLIC_TRACEWAY_DSN" ]; then
+            echo "PUBLIC_TRACEWAY_DSN not set; skipping Traceway"
+            exit 0
+          fi
+          mkdir "$RUNNER_TEMP/tw"
+          cd "$RUNNER_TEMP/tw"
+          bun init -y > /dev/null
+          bun add --exact @tracewayapp/frontend@1.2.1
+          cp node_modules/@tracewayapp/frontend/dist/traceway.iife.global.js "$GITHUB_WORKSPACE/_site/traceway.js"
+          cd "$GITHUB_WORKSPACE"
+          bun .github/scripts/inject-traceway.js
 
       - name: Configure Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
