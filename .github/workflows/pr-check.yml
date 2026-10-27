@@ -32,8 +32,16 @@ jobs:
       # builds; add a test step here when a test project exists.
       - name: Restore NuGet packages
         run: nuget restore PSPlibrary.sln
+      # Runners do not ship the .NET Framework 4.0 targeting pack (MSB3644), so fetch
+      # the reference assemblies from NuGet instead of retargeting the project.
+      - name: Fetch .NET Framework 4.0 reference assemblies
+        shell: pwsh
+        run: |
+          nuget install Microsoft.NETFramework.ReferenceAssemblies.net40 -OutputDirectory "$env:RUNNER_TEMP\refs" -NonInteractive
+          $dir = Get-ChildItem "$env:RUNNER_TEMP\refs\Microsoft.NETFramework.ReferenceAssemblies.net40*\build\.NETFramework\v4.0" | Select-Object -First 1
+          "FRAMEWORK_REFS=$($dir.FullName)" >> $env:GITHUB_ENV
       - name: Release build (x64)
-        run: msbuild PSPlibrary.sln /p:Configuration=Release /p:Platform=x64 /m /nologo
+        run: msbuild PSPlibrary.sln /p:Configuration=Release /p:Platform=x64 "/p:FrameworkPathOverride=$env:FRAMEWORK_REFS" /m /nologo
 
   qlty:
     name: Qlty Analysis
