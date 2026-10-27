@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PSP Library — know every PSP ISO at a glance</title>
+<meta name="description" content="A small Windows app that reads your PSP game folder and shows each game's cover, title, catalog ID, region and firmware. No install, ISOs stay untouched.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PSP Library — know every PSP ISO at a glance">
+<meta property="og:description" content="Cover, title, catalog ID, region and firmware for every PSP ISO in your folder. Download, extract, run.">
+<meta property="og:image" content="http://dvgamerr.app/psp-library-win/screenshots/library.jpg">
+<meta property="og:url" content="http://dvgamerr.app/psp-library-win/">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="favicon.ico">
+<style>
+:root{
+  --bg:#06162e; --bg2:#0b2a52; --glow:#1aa6d8; --ink:#eaf6ff; --muted:#9fb9d3;
+  --card:rgba(255,255,255,.07); --line:rgba(255,255,255,.16); --accent:#3ad0ff; --accent-ink:#04202f;
+  --code:#031120; --shadow:0 20px 60px rgba(0,0,0,.45);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#eef6fc; --bg2:#d3e8f7; --glow:#7cc7ea; --ink:#0a2238; --muted:#41607c;
+    --card:rgba(255,255,255,.75); --line:rgba(10,34,56,.16); --accent:#0a74a6; --accent-ink:#fff;
+    --code:#0a2238; --shadow:0 20px 50px rgba(10,34,56,.18);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0; color:var(--ink); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  background:
+    radial-gradient(1200px 520px at 50% -8%, var(--glow) 0%, transparent 62%),
+    linear-gradient(180deg,var(--bg2) 0%,var(--bg) 70%);
+  background-color:var(--bg); min-height:100vh;
+}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.02em;color:var(--ink);text-decoration:none}
+.brand img{width:28px;height:28px}
+nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-size:.95rem}
+nav a:hover{color:var(--ink)}
+.hero{text-align:center;padding:36px 0 24px}
+.hero h1{font-size:clamp(2rem,6vw,3.6rem);line-height:1.1;margin:0 0 16px;letter-spacing:-.02em}
+.hero p.lead{max-width:640px;margin:0 auto 28px;color:var(--muted);font-size:1.15rem}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:650;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--card)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+.btn:hover{filter:brightness(1.08)}
+.shot{margin:40px auto 0;max-width:900px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:var(--card)}
+.shot .bar{height:6px;background:linear-gradient(90deg,var(--accent),transparent)}
+.shot img{display:block;width:100%;height:auto}
+section{padding:56px 0}
+h2{font-size:clamp(1.5rem,4vw,2.1rem);margin:0 0 8px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin:0 0 6px;font-size:1.05rem}
+.card p{margin:0;color:var(--muted);font-size:.97rem}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.steps li{counter-increment:s;display:flex;gap:14px;align-items:flex-start}
+.steps li::before{content:counter(s);flex:none;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:700}
+.codebox{display:flex;align-items:center;gap:10px;background:var(--code);color:#cfeaff;border-radius:10px;padding:10px 12px;margin-top:8px;overflow:auto}
+.codebox code{font:14px/1.4 ui-monospace,Consolas,monospace;white-space:nowrap;flex:1}
+.codebox button{flex:none;border:1px solid rgba(255,255,255,.25);background:transparent;color:#cfeaff;border-radius:8px;padding:6px 12px;cursor:pointer;font:inherit;font-size:.85rem}
+.warn{border-left:4px solid #f5b942;background:var(--card);border-radius:10px;padding:14px 16px;margin-top:24px;color:var(--ink)}
+.warn strong{color:#f5b942}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.two figure{margin:0}
+.two img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);display:block}
+.two figcaption{color:var(--muted);font-size:.9rem;margin-top:6px}
+@media(max-width:700px){.two{grid-template-columns:1fr}nav a{margin-left:12px}}
+.star{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:36px 20px}
+footer{padding:36px 0 56px;color:var(--muted);font-size:.9rem;text-align:center;border-top:1px solid var(--line)}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#"><img src="favicon.ico" alt="" width="28" height="28">PSP Library</a>
+    <nav><a href="#features">Features</a><a href="#start">Get started</a><a href="https://github.com/dvgamerr-app/psp-library-win">GitHub</a></nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Know every PSP ISO<br>before you launch it.</h1>
+      <p class="lead">PSP Library reads your game folder and shows each game's cover, title, catalog ID, region and firmware, so file names like <code>cvn-tokd.hako</code> stop being a mystery.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/dvgamerr-app/psp-library-win/releases/latest">Download for Windows</a>
+        <a class="btn" href="https://github.com/dvgamerr-app/psp-library-win">View on GitHub<span id="stars"></span></a>
+      </div>
+      <div class="shot">
+        <div class="bar"></div>
+        <img src="screenshots/library.jpg" alt="PSP Library listing 27 games with catalog ID, region and firmware, and the Gods Eater Burst cover on the right" width="900" height="589">
+      </div>
+    </div>
+
+    <section id="features">
+      <h2>What you get</h2>
+      <p class="sub">Everything is read from the game's own files, nothing is downloaded.</p>
+      <div class="grid">
+        <div class="card"><h3>📚 Library list</h3><p>Catalog ID, file name, region and firmware for every ISO in your folder, sortable.</p></div>
+        <div class="card"><h3>🖼️ Cover and background</h3><p>The game's icon and PIC1 background pulled from inside the ISO.</p></div>
+        <div class="card"><h3>🔎 Game details</h3><p>Title, version, firmware, parental level, disc type, size and created date.</p></div>
+        <div class="card"><h3>🪟 Quick viewer</h3><p>Open one <code>.iso</code> with PSP Library to see its details without scanning a folder.</p></div>
+        <div class="card"><h3>📊 Collection summary</h3><p>Total games, total size and an English / Japan / Other split.</p></div>
+        <div class="card"><h3>🔒 ISOs stay untouched</h3><p>Games are opened read-only. Metadata is cached in a <code>PSPStore</code> folder next to the app.</p></div>
+      </div>
+      <div class="two" style="margin-top:28px">
+        <figure><img loading="lazy" src="screenshots/viewer.jpg" alt="Single game viewer showing Hot Shots Golf: Open Tee with catalog ID UG-UCUS98614" width="899" height="510"><figcaption>Single-game viewer</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/problem.jpg" alt="A folder of ISOs with names that do not say which game they are" width="600" height="204"><figcaption>The problem it solves</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="start">
+      <h2>Get started in a minute</h2>
+      <p class="sub">No installer. Needs Windows with .NET Framework 4.0 or newer.</p>
+      <ol class="steps">
+        <li><div>Download <strong>psp-library-v1.1-release-x64.zip</strong> (or x86) from the <a href="https://github.com/dvgamerr-app/psp-library-win/releases/latest">latest release</a>.</div></li>
+        <li><div>Extract it anywhere and run <code>PSPlibrary.exe</code>.</div></li>
+        <li><div>Choose the folder that holds your PSP games and wait for the scan.</div></li>
+        <li><div>Want just one game? Run:
+          <div class="codebox"><code id="cmd">PSPlibrary.exe "C:\path\to\game.iso"</code><button type="button" id="copy">Copy</button></div></div></li>
+      </ol>
+      <div class="warn"><strong>Heads up:</strong> the scan moves any <code>.iso</code>, <code>.cso</code> or <code>.pbp</code> sitting directly in your chosen folder into a sub-folder named after the file. Use a folder you are happy to have tidied, or back it up first. Details are read from <code>.iso</code> only for now.</div>
+    </section>
+
+    <section>
+      <div class="star">
+        <h2>Found it useful?</h2>
+        <p class="sub" style="margin-bottom:20px">A star helps other PSP collectors find it. Bugs and ideas are welcome too.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/dvgamerr-app/psp-library-win">⭐ Star on GitHub</a>
+          <a class="btn" href="https://github.com/dvgamerr-app/psp-library-win/issues">Report an issue</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>PSP Library is a fan-made tool and is not affiliated with Sony Interactive Entertainment. It does not include or download any game.</p>
+    <p>Licence: not specified yet · <a href="https://github.com/dvgamerr-app/psp-library-win">Source on GitHub</a> · <a href="https://github.com/dvgamerr-app/psp-library-win/blob/main/README.th.md">ภาษาไทย</a></p>
+  </footer>
+</div>
+<script>
+(function(){
+  var b=document.getElementById('copy'),c=document.getElementById('cmd');
+  if(b&&c&&navigator.clipboard){b.addEventListener('click',function(){
+    navigator.clipboard.writeText(c.textContent).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500)},function(){});
+  })}else if(b){b.hidden=true}
+  try{fetch('https://api.github.com/repos/dvgamerr-app/psp-library-win').then(function(r){return r.ok?r.json():null}).then(function(d){
+    if(d&&typeof d.stargazers_count==='number')document.getElementById('stars').textContent=' · ★ '+d.stargazers_count;
+  }).catch(function(){})}catch(e){}
+})();
+</script>
+</body>
+</html>
